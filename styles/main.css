@@ -26,6 +26,7 @@ section {
 
 .banner-img {
   max-width: 500px;
+  max-height: 250px;
   width: 100%;
 }
 
@@ -69,4 +70,8 @@ section {
 }
 .perm-modal {
   display: none;
+}
+
+.fa-plus-circle {
+  font-size: 1.2rem;
 }

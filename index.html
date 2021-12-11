@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <title>Genshin Wish Counter</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/darkly-bootstrap.min.css">
   <link rel="stylesheet" href="styles/main.css">
   <script src="script/main.js" defer></script>
@@ -23,7 +25,7 @@
         <a class="nav-link " data-bs-toggle="tab" href="#character">Character</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#weapone">Weapon</a>
+        <a class="nav-link" data-bs-toggle="tab" href="#weapon">Weapon</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="tab" href="#perm">Perm</a>
@@ -36,29 +38,31 @@
           <fieldset class="field-set">
             <legend>Owned Materials</legend>
             <div class="form-group row">
-              <div class="col-1">
+              <div class="col-auto">
                 <label for="own-perm-banner"><img src="img/acquaint_fate.png" alt="Acquaint Fate"></label>
               </div>
-              <div class="col-2">
-                <input type="number" name="own-perm-banner" id="own-perm-banner" value="0" readonly>
+              <div class="col-auto">
+                <input type="number" name="own-perm-banner" id="own-perm-banner" value="0">
               </div>
-              <div class="col-1">
+              <div class="col-auto">
                 <label for="own-char-banner"><img src="img/intertwined_fate.png" alt="Intertwined Fate"></label>
               </div>
-              <div class="col-2">
-                <input type="number" name="own-char-banner" id="own-char-banner" value="0" readonly>
+              <div class="col-auto">
+                <input type="number" name="own-char-banner" id="own-char-banner" value="0">
               </div>
-              <div class="col-1">
+            </div>
+            <div class="form-group row">
+              <div class="col-auto">
                 <label for="own-primogem"><img src="img/primogem.png" alt="Primogem"></label>
               </div>
-              <div class="col-2">
-                <input type="number" name="own-event-banner" id="own-primogem" value="0" readonly>
+              <div class="col-auto">
+                <input type="number" name="own-event-banner" id="own-primogem" value="0">
               </div>
-              <div class="col-1">
+              <div class="col-auto">
                 <label for="own-genesis-crystal"><img src="img/genesis_crystal.png" alt="Genesis Crystal"></label>
               </div>
-              <div class="col-2">
-                <input type="number" name="own-event-banner" id="own-genesis-crystal" value="0" readonly>
+              <div class="col-auto">
+                <input type="number" name="own-event-banner" id="own-genesis-crystal" value="0">
               </div>
             </div>
           </fieldset>
@@ -67,23 +71,28 @@
       </section>
       <section id="character" class="my-1 p-4 tab-pane fade">
         <form>
-          <div class="form-group row">
-            <div class="col-auto">
+          <div class="form-group row mt-2">
+            <div class="col-3">
               <label for="char-attempts">Attempts</label>
             </div>
-            <div class="col-auto">
-              <input type="number" name="char-attempts" id="char-attempts" value="0" readonly>
+            <div class="col-3">
+              <input type="number" name="char-attempts" id="char-attempts" value="0" style="width:55px" readonly>
+              <i class="fas fa-plus-circle"></i>
             </div>
-            <div class="col-auto">
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col-3">
               <label for="char-last-win">Last 5*</label>
             </div>
-            <div class="col-auto">
+            <div class="col-3">
               <input type="number" name="char-last-win" id="char-last-win" value="0" readonly>
             </div>
-            <div class="col-auto">
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col-3">
               <label for="char-total">Total</label>
             </div>
-            <div class="col-auto">
+            <div class="col-3">
               <input type="number" name="char-total" id="char-total" value="0" readonly>
             </div>
           </div>
@@ -91,25 +100,30 @@
         <img class="banner-img mt-4" src="img/Wish_Secretum_Secretorum_2021-11-24.png" alt="">
         <button id='char-reset' class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
       </section>
-      <section id="weapone" class="my-1 p-4 tab-pane fade ">
+      <section id="weapon" class="my-1 p-4 tab-pane fade ">
         <form>
-          <div class="form-group row">
-            <div class="col-auto">
+          <div class="form-group row mt-2">
+            <div class="col-3">
               <label for="weapon-attempts">Attempts</label>
             </div>
-            <div class="col-auto">
-              <input type="number" name="weapon-attempts" id="weapon-attempts" value="0" readonly>
+            <div class="col-3">
+              <input type="number" name="weapon-attempts" id="weapon-attempts" value="0" style="width:55px" readonly>
+              <i class="fas fa-plus-circle"></i>
             </div>
-            <div class="col-auto">
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col-3">
               <label for="weapon-last-win">Last 5*</label>
             </div>
-            <div class="col-auto">
+            <div class="col-3">
               <input type="number" name="weapon-last-win" id="weapon-last-win" value="0" readonly>
             </div>
-            <div class="col-auto">
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col-3">
               <label for="weapon-total">Total</label>
             </div>
-            <div class="col-auto">
+            <div class="col-3">
               <input type="number" name="weapon-total" id="weapon-total" value="0" readonly>
             </div>
           </div>
@@ -119,23 +133,28 @@
       </section>
       <section id="perm" class="my-1 p-4 tab-pane fade ">
         <form>
-          <div class="form-group row">
-            <div class="col-auto">
+          <div class="form-group row mt-2">
+            <div class="col-3">
               <label for="perm-attempts">Attempts</label>
             </div>
-            <div class="col-auto">
-              <input type="number" name="perm-attempts" id="perm-attempts" value="0" readonly>
+            <div class="col-3">
+              <input type="number" name="perm-attempts" id="perm-attempts" value="0" style="width:55px" readonly>
+              <i class="fas fa-plus-circle"></i>
             </div>
-            <div class="col-auto">
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col-3">
               <label for="perm-last-win">Last 5*</label>
             </div>
-            <div class="col-auto">
+            <div class="col-3">
               <input type="number" name="perm-last-win" id="perm-last-win" value="0" readonly>
             </div>
-            <div class="col-auto">
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col-3 ">
               <label for="perm-total">Total</label>
             </div>
-            <div class="col-auto">
+            <div class="col-3">
               <input type="number" name="perm-total" id="perm-total" readonly>
             </div>
           </div>

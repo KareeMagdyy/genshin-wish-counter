@@ -1,5 +1,5 @@
 //Global Selectors
-const inputs = document.querySelectorAll("input");
+// const inputs = document.querySelectorAll("input");
 
 //Own Materials Selectors
 const ownPerm = document.getElementById("own-perm-banner");
@@ -16,6 +16,7 @@ const charResetBtn = document.getElementById("char-reset");
 const charModal = document.querySelector(".char-modal");
 const charResetConfirmBtn = document.querySelector(".char-modal .confirm");
 const charResetCloseBtn = document.querySelector(".char-modal .close-btn");
+const addCharAtt = document.querySelector("#character .fa-plus-circle");
 
 //Weapon Banner Selector
 const weaponAttempts = document.getElementById("weapon-attempts");
@@ -25,6 +26,7 @@ const weaponResetBtn = document.getElementById("weapon-reset");
 const weaponModal = document.querySelector(".weapon-modal");
 const weaponResetConfirmBtn = document.querySelector(".weapon-modal .confirm");
 const weaponResetCloseBtn = document.querySelector(".weapon-modal .close-btn");
+const addWeaponAtt = document.querySelector("#weapon .fa-plus-circle");
 
 //Perm Banner Selector
 const permAttempts = document.getElementById("perm-attempts");
@@ -34,16 +36,17 @@ const permResetBtn = document.getElementById("perm-reset");
 const permModal = document.querySelector(".perm-modal");
 const permResetConfirmBtn = document.querySelector(".perm-modal .confirm");
 const permResetCloseBtn = document.querySelector(".perm-modal .close-btn");
+const addPremAtt = document.querySelector("#perm .fa-plus-circle");
 
 // Global Events
-inputs.forEach((input) => {
-  input.addEventListener("dblclick", () => {
-    input.removeAttribute("readonly");
-  });
-  input.addEventListener("blur", () => {
-    input.setAttribute("readonly", true);
-  });
-});
+// inputs.forEach((input) => {
+//   input.addEventListener("dblclick", () => {
+//     input.removeAttribute("readonly");
+//   });
+//   input.addEventListener("blur", () => {
+//     input.setAttribute("readonly", true);
+//   });
+// });
 
 //Own Materials Events
 ownPerm.addEventListener("change", addToLocalOwnPerm);
@@ -136,6 +139,7 @@ function charResetClose() {
 function charResetConfirm() {
   charModal.style.display = "none";
   charLastWin.value = charAttempts.value;
+  localStorage.setItem("charBannerLastWin", charAttempts.value);
   localStorage.removeItem("charBannerAttempts");
   charAttempts.value = 0;
 }
@@ -180,6 +184,7 @@ function weaponResetClose() {
 function weaponResetConfirm() {
   weaponModal.style.display = "none";
   weaponLastWin.value = weaponAttempts.value;
+  localStorage.setItem("weaponBannerLastWin", weaponAttempts.value);
   localStorage.removeItem("weaponBannerAttempts");
   weaponAttempts.value = 0;
 }
@@ -223,6 +228,7 @@ function permResetClose() {
 function permResetConfirm() {
   permModal.style.display = "none";
   permLastWin.value = permAttempts.value;
+  localStorage.setItem("permBannerLastWin", permAttempts.value);
   localStorage.removeItem("permBannerAttempts");
   permAttempts.value = 0;
 }
