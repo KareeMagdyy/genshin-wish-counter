@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <title>Genshin Wish Counter</title>
+  <link rel="stylesheet" href="styles/darkly-bootstrap.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="script/main.js" defer></script>
+</head>
+
+<body>
+  <div class="container d-flex justify-content-center align-items-center flex-column" style="height: 100vh;">
+    <h1 class="my-3">Welcome!</h1>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#owned">Owned Materials</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " data-bs-toggle="tab" href="#character">Character</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#weapone">Weapon</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#perm">Perm</a>
+      </li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content">
+      <section id="owned" class="p-4 my-1 tab-pane fade active show">
+        <form class="owned-materials">
+          <fieldset class="field-set">
+            <legend>Owned Materials</legend>
+            <div class="form-group row">
+              <div class="col-1">
+                <label for="own-perm-banner"><img src="img/acquaint_fate.png" alt="Acquaint Fate"></label>
+              </div>
+              <div class="col-2">
+                <input type="number" name="own-perm-banner" id="own-perm-banner" value="0" readonly>
+              </div>
+              <div class="col-1">
+                <label for="own-char-banner"><img src="img/intertwined_fate.png" alt="Intertwined Fate"></label>
+              </div>
+              <div class="col-2">
+                <input type="number" name="own-char-banner" id="own-char-banner" value="0" readonly>
+              </div>
+              <div class="col-1">
+                <label for="own-primogem"><img src="img/primogem.png" alt="Primogem"></label>
+              </div>
+              <div class="col-2">
+                <input type="number" name="own-event-banner" id="own-primogem" value="0" readonly>
+              </div>
+              <div class="col-1">
+                <label for="own-genesis-crystal"><img src="img/genesis_crystal.png" alt="Genesis Crystal"></label>
+              </div>
+              <div class="col-2">
+                <input type="number" name="own-event-banner" id="own-genesis-crystal" value="0" readonly>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <h3 class="mt-4">Current wish from currency = <span class='current-wish-count'></span></h3>
+      </section>
+      <section id="character" class="my-1 p-4 tab-pane fade">
+        <form>
+          <div class="form-group row">
+            <div class="col-auto">
+              <label for="char-attempts">Attempts</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="char-attempts" id="char-attempts" value="0" readonly>
+            </div>
+            <div class="col-auto">
+              <label for="char-last-win">Last 5*</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="char-last-win" id="char-last-win" value="0" readonly>
+            </div>
+            <div class="col-auto">
+              <label for="char-total">Total</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="char-total" id="char-total" value="0" readonly>
+            </div>
+          </div>
+        </form>
+        <img class="banner-img mt-4" src="img/Wish_Secretum_Secretorum_2021-11-24.png" alt="">
+        <button id='char-reset' class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
+      </section>
+      <section id="weapone" class="my-1 p-4 tab-pane fade ">
+        <form>
+          <div class="form-group row">
+            <div class="col-auto">
+              <label for="weapon-attempts">Attempts</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="weapon-attempts" id="weapon-attempts" value="0" readonly>
+            </div>
+            <div class="col-auto">
+              <label for="weapon-last-win">Last 5*</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="weapon-last-win" id="weapon-last-win" value="0" readonly>
+            </div>
+            <div class="col-auto">
+              <label for="weapon-total">Total</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="weapon-total" id="weapon-total" value="0" readonly>
+            </div>
+          </div>
+        </form>
+        <img class="banner-img mt-4" src="img/Wish_Epitome_Invocation_2021-11-24.png" alt="">
+        <button id="weapon-reset" class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
+      </section>
+      <section id="perm" class="my-1 p-4 tab-pane fade ">
+        <form>
+          <div class="form-group row">
+            <div class="col-auto">
+              <label for="perm-attempts">Attempts</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="perm-attempts" id="perm-attempts" value="0" readonly>
+            </div>
+            <div class="col-auto">
+              <label for="perm-last-win">Last 5*</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="perm-last-win" id="perm-last-win" value="0" readonly>
+            </div>
+            <div class="col-auto">
+              <label for="perm-total">Total</label>
+            </div>
+            <div class="col-auto">
+              <input type="number" name="perm-total" id="perm-total" readonly>
+            </div>
+          </div>
+        </form>
+        <img class="banner-img mt-4" src="img/Wish_Wanderlust_Invocation_2020-11-11.png" alt="">
+        <button id="perm-reset" class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
+      </section>
+      <div class="my-modal char-modal">
+        <button class="close-btn"> <img src="img/closing-button.png" alt="Close"> </button>
+        <h3>Warning</h3>
+        <p>Are you sure you want to reset the entries</p>
+        <button class="confirm">Yes!</button>
+      </div>
+      <div class="my-modal weapon-modal">
+        <button class="close-btn"> <img src="img/closing-button.png" alt="Close"> </button>
+        <h3>Warning</h3>
+        <p>Are you sure you want to reset the entries</p>
+        <button class="confirm">Yes!</button>
+      </div>
+      <div class="my-modal perm-modal">
+        <button class="close-btn"> <img src="img/closing-button.png" alt="Close"> </button>
+        <h3>Warning</h3>
+        <p>Are you sure you want to reset the entries</p>
+        <button class="confirm">Yes!</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

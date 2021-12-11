@@ -1,0 +1,72 @@
+* {
+  cursor: url(../img/cursor.png), auto !important;
+}
+label img {
+  width: 30px;
+  height: 30px;
+}
+
+input[type="number"] {
+  width: 5rem;
+  text-align: center;
+  font-family: inherit;
+  border: none;
+  border-radius: 6px;
+}
+
+.current-wish-count {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+section {
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.banner-img {
+  max-width: 500px;
+  width: 100%;
+}
+
+.my-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #21364c;
+  color: adb5bd;
+  padding: 2rem;
+  border-radius: 8px;
+  font-size: 110%;
+}
+
+.close-btn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+}
+
+.confirm {
+  border: none;
+  background-color: #adb5bd;
+  padding: 8px 20px;
+  border-radius: 8px;
+}
+
+.char-modal {
+  display: none;
+}
+.weapon-modal {
+  display: none;
+}
+.perm-modal {
+  display: none;
+}
