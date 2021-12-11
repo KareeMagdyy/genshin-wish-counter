@@ -236,15 +236,3 @@ if (localStorage.getItem("permBannerLastWin")) {
 if (localStorage.getItem("permBannerTotal")) {
   permTotal.value = localStorage.getItem("permBannerTotal");
 }
-
-if (localStorage.getItem("permBannerAttempts") > permAttempts.value) {
-  permTotal.value =
-    localStorage.getItem("permBannerAttempts") -
-    permAttempts.value +
-    permTotal.value;
-} else {
-  permTotal.value =
-    permAttempts.value -
-    localStorage.getItem("permBannerAttempts") +
-    permTotal.value;
-}
