@@ -1,5 +1,6 @@
 //Global Selectors
 // const inputs = document.querySelectorAll("input");
+const editBtn = document.querySelectorAll(".fa-edit");
 
 //Own Materials Selectors
 const ownPerm = document.getElementById("own-perm-banner");
@@ -16,7 +17,8 @@ const charResetBtn = document.getElementById("char-reset");
 const charModal = document.querySelector(".char-modal");
 const charResetConfirmBtn = document.querySelector(".char-modal .confirm");
 const charResetCloseBtn = document.querySelector(".char-modal .close-btn");
-const addCharAtt = document.querySelector("#character .fa-plus-circle");
+const addCharAtt = document.querySelector("#character .fa-plus-square");
+const removeCharAtt = document.querySelector("#character .fa-minus-square");
 
 //Weapon Banner Selector
 const weaponAttempts = document.getElementById("weapon-attempts");
@@ -26,7 +28,8 @@ const weaponResetBtn = document.getElementById("weapon-reset");
 const weaponModal = document.querySelector(".weapon-modal");
 const weaponResetConfirmBtn = document.querySelector(".weapon-modal .confirm");
 const weaponResetCloseBtn = document.querySelector(".weapon-modal .close-btn");
-const addWeaponAtt = document.querySelector("#weapon .fa-plus-circle");
+const addWeaponAtt = document.querySelector("#weapon .fa-plus-square");
+const removeWeaponAtt = document.querySelector("#weapon .fa-minus-square");
 
 //Perm Banner Selector
 const permAttempts = document.getElementById("perm-attempts");
@@ -36,7 +39,8 @@ const permResetBtn = document.getElementById("perm-reset");
 const permModal = document.querySelector(".perm-modal");
 const permResetConfirmBtn = document.querySelector(".perm-modal .confirm");
 const permResetCloseBtn = document.querySelector(".perm-modal .close-btn");
-const addPremAtt = document.querySelector("#perm .fa-plus-circle");
+const addPermAtt = document.querySelector("#perm .fa-plus-square");
+const removePermAtt = document.querySelector("#perm .fa-minus-square");
 
 // Global Events
 // inputs.forEach((input) => {
@@ -47,6 +51,16 @@ const addPremAtt = document.querySelector("#perm .fa-plus-circle");
 //     input.setAttribute("readonly", true);
 //   });
 // });
+editBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    let theInput = btn.previousElementSibling;
+    theInput.removeAttribute("readonly");
+    theInput.focus();
+    theInput.addEventListener("blur", () => {
+      theInput.setAttribute("readonly", true);
+    });
+  });
+});
 
 //Own Materials Events
 ownPerm.addEventListener("change", addToLocalOwnPerm);
@@ -56,19 +70,31 @@ ownGenesis.addEventListener("change", addToLocalOwnGen);
 window.onload = primoGenWishCount;
 
 //Char Events
-charAttempts.addEventListener("change", addToLocalCharAtt);
+addCharAtt.addEventListener("click", addToLocalCharAtt);
+removeCharAtt.addEventListener("click", subtractLocalCharAtt);
+charTotal.addEventListener("change", () => {
+  localStorage.setItem("charBannerTotal", charTotal.value);
+});
 charResetBtn.addEventListener("click", charReset);
 charResetCloseBtn.addEventListener("click", charResetClose);
 charResetConfirmBtn.addEventListener("click", charResetConfirm);
 
 //Weapon Events
-weaponAttempts.addEventListener("change", addToLocalWeaponAtt);
+addWeaponAtt.addEventListener("click", addToLocalWeaponAtt);
+removeWeaponAtt.addEventListener("click", subtractLocalWeaponAtt);
+weaponTotal.addEventListener("change", () => {
+  localStorage.setItem("weaponBannerTotal", weaponTotal.value);
+});
 weaponResetBtn.addEventListener("click", weaponReset);
 weaponResetCloseBtn.addEventListener("click", weaponResetClose);
 weaponResetConfirmBtn.addEventListener("click", weaponResetConfirm);
 
 //Perm Events
-permAttempts.addEventListener("change", addToLocalPermAtt);
+addPermAtt.addEventListener("click", addToLocalPermAtt);
+removePermAtt.addEventListener("click", subtractLocalPermAtt);
+permTotal.addEventListener("change", () => {
+  localStorage.setItem("permBannerTotal", permTotal.value);
+});
 permResetBtn.addEventListener("click", permReset);
 permResetCloseBtn.addEventListener("click", permResetClose);
 permResetConfirmBtn.addEventListener("click", permResetConfirm);
@@ -112,20 +138,30 @@ if (localStorage.getItem("ownGenesis")) {
 
 //Char Banner LocalStorage
 function addToLocalCharAtt() {
+  charAttempts.value++;
   localStorage.setItem("charBannerAttempts", charAttempts.value);
-  if (charTotal.value == 0) {
-    charTotal.value = charAttempts.value;
-  } else {
-    charTotal.value = parseInt(charTotal.value) + parseInt(charAttempts.value);
-  }
-  addToLocalCharLast();
-  addToLocalCharTotal();
+  addToLocalCharTotal("+");
 }
+
+function subtractLocalCharAtt() {
+  if (charAttempts.value > 0) {
+    charAttempts.value--;
+    localStorage.setItem("charBannerAttempts", charAttempts.value);
+    addToLocalCharTotal("-");
+  }
+}
+
+function addToLocalCharTotal(operator) {
+  if (operator === "+") {
+    charTotal.value++;
+  } else {
+    charTotal.value--;
+  }
+  localStorage.setItem("charBannerTotal", charTotal.value);
+}
+
 function addToLocalCharLast() {
   localStorage.setItem("charBannerLastWin", charLastWin.value);
-}
-function addToLocalCharTotal() {
-  localStorage.setItem("charBannerTotal", charTotal.value);
 }
 
 function charReset() {
@@ -156,21 +192,30 @@ if (localStorage.getItem("charBannerTotal")) {
 
 //Weapon Banner LocalStorage
 function addToLocalWeaponAtt() {
+  weaponAttempts.value++;
   localStorage.setItem("weaponBannerAttempts", weaponAttempts.value);
-  if (weaponTotal.value == 0) {
-    weaponTotal.value = weaponAttempts.value;
-  } else {
-    weaponTotal.value =
-      parseInt(weaponTotal.value) + parseInt(weaponAttempts.value);
-  }
-  addToLocalWeaponLast();
-  addToLocalWeaponTotal();
+  addToLocalWeaponTotal("+");
 }
+
+function subtractLocalWeaponAtt() {
+  if (weaponAttempts.value > 0) {
+    weaponAttempts.value--;
+    localStorage.setItem("weaponBannerAttempts", weaponAttempts.value);
+    addToLocalWeaponTotal("-");
+  }
+}
+
+function addToLocalWeaponTotal(operator) {
+  if (operator === "+") {
+    weaponTotal.value++;
+  } else {
+    weaponTotal.value--;
+  }
+  localStorage.setItem("weaponBannerTotal", weaponTotal.value);
+}
+
 function addToLocalWeaponLast() {
   localStorage.setItem("weaponBannerLastWin", weaponLastWin.value);
-}
-function addToLocalWeaponTotal() {
-  localStorage.setItem("weaponBannerTotal", weaponTotal.value);
 }
 
 function weaponReset() {
@@ -201,20 +246,30 @@ if (localStorage.getItem("weaponBannerTotal")) {
 
 //Perm Banner LocalStorage
 function addToLocalPermAtt() {
+  permAttempts.value++;
   localStorage.setItem("permBannerAttempts", permAttempts.value);
-  if (permTotal.value == 0) {
-    permTotal.value = permAttempts.value;
-  } else {
-    permTotal.value = parseInt(permTotal.value) + parseInt(permAttempts.value);
-  }
-  addToLocalPermLast();
-  addToLocalPermTotal();
+  addToLocalPermTotal("+");
 }
+
+function subtractLocalPermAtt() {
+  if (permAttempts.value > 0) {
+    permAttempts.value--;
+    localStorage.setItem("permBannerAttempts", permAttempts.value);
+    addToLocalPermTotal("-");
+  }
+}
+
+function addToLocalPermTotal(operator) {
+  if (operator === "+") {
+    permTotal.value++;
+  } else {
+    permTotal.value--;
+  }
+  localStorage.setItem("permBannerTotal", permTotal.value);
+}
+
 function addToLocalPermLast() {
   localStorage.setItem("permBannerLastWin", permLastWin.value);
-}
-function addToLocalPermTotal() {
-  localStorage.setItem("permBannerTotal", permTotal.value);
 }
 
 function permReset() {

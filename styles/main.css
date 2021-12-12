@@ -10,7 +10,7 @@ input[type="number"] {
   width: 5rem;
   text-align: center;
   font-family: inherit;
-  border: none;
+  /* border: none; */
   border-radius: 6px;
 }
 
@@ -72,6 +72,8 @@ section {
   display: none;
 }
 
-.fa-plus-circle {
-  font-size: 1.2rem;
+.fa-plus-square,
+.fa-minus-square {
+  font-size: 1.3rem;
+  margin-left: 0.3rem;
 }
