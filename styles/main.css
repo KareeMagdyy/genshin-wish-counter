@@ -3,7 +3,7 @@
 }
 
 body {
-  padding-block: 1rem;
+  padding-block: 3rem;
 }
 
 label img {
@@ -27,6 +27,38 @@ h4 > span {
 section {
   border: 1px solid #eee;
   border-radius: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.details {
+  margin-block: 1rem;
+  padding: 1rem;
+  background-color: rgb(46, 46, 46);
+  border: dashed #fff 1px;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+}
+
+.details p {
+  font-size: 1rem;
+}
+
+.details p span {
+  color: red;
+}
+
+.details img {
+  width: 30px;
+  aspect-ratio: 1;
+}
+
+.flex span {
+  font-size: 1rem;
+  margin-left: 0.5rem;
 }
 
 .banner-img {
@@ -66,6 +98,10 @@ section {
   background-color: #adb5bd;
   padding: 8px 20px;
   border-radius: 8px;
+}
+
+.reset-warn {
+  color: rgb(255, 0, 0);
 }
 
 .char-modal {

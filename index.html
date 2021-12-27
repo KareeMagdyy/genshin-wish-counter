@@ -75,7 +75,18 @@
             </div>
           </fieldset>
         </form>
-        <h4 class="mt-4">Current wish from currency = <span class='current-wish-count'></span></h4>
+        <div class="details ">
+          <div class="primo flex">
+            <img src="/img/primogem.png" alt=""><span> : 0</span>
+          </div>
+          <div class="crystal flex">
+            <img src="/img/genesis_crystal.png" alt=""><span> : 0</span>
+          </div>
+          <div class="masterless flex">
+            <img src="/img/masterless_starglitter.png" alt=""><span> : 0</span>
+          </div>
+          <p class="my-2">Total Wishes: <span class='current-wish-count'>0</span></p>
+        </div>
       </section>
       <section id="character" class="my-1 p-4 tab-pane fade">
         <form>
@@ -97,7 +108,7 @@
           </div>
           <div class="form-group row mt-2">
             <div class="col-3">
-              <label for="char-last-win">Last 5*</label>
+              <label for="char-last-win">Last 5⭐</label>
             </div>
             <div class="col-4">
               <input type="number" name="char-last-win" id="char-last-win" value="0" readonly>
@@ -114,8 +125,8 @@
             </div>
           </div>
         </form>
-        <h4 class="mt-4">Current Avl. Wishes = <span id="charWishes"> 0</span></h4>
-        <h4 class="mt-1">Total With Attempts = <span id="charWithAttempts"> 0</span></h4>
+        <h4 class="mt-4">Current Avl. Wishes: <span id="charWishes"> 0</span></h4>
+        <h4 class="mt-1">Total with Attempts: <span id="charWithAttempts"> 0</span></h4>
         <img class="banner-img mt-4" src="img/Wish_Secretum_Secretorum_2021-11-24.png" alt="">
         <button id='char-reset' class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
       </section>
@@ -139,7 +150,7 @@
           </div>
           <div class="form-group row mt-2">
             <div class="col-3">
-              <label for="weapon-last-win">Last 5*</label>
+              <label for="weapon-last-win">Last 5⭐</label>
             </div>
             <div class="col-4">
               <input type="number" name="weapon-last-win" id="weapon-last-win" value="0" readonly>
@@ -150,14 +161,14 @@
               <label for="weapon-total">Total</label>
             </div>
             <div class="col-4">
-              <input type="number" name="weapon-total" id="weapon-total" value="0" style="width: 60px;margin-right:3px;"
+              <input type="number" name="weapon-total" id="weapon-total" value="0" style="width:60px;margin-right:3px;"
                 readonly>
               <i class="far fa-edit"></i>
             </div>
           </div>
         </form>
-        <h4 class="mt-4">Current Avl. Wishes = <span id="weaponWishes"> 0</span></h4>
-        <h4 class="mt-1">Total With Attempts = <span id="weaponWithAttempts"> 0</span></h4>
+        <h4 class="mt-4">Current Avl. Wishes: <span id="weaponWishes"> 0</span></h4>
+        <h4 class="mt-1">Total with Attempts: <span id="weaponWithAttempts"> 0</span></h4>
         <img class="banner-img mt-4" src="img/Wish_Epitome_Invocation_2021-11-24.png" alt="">
         <button id="weapon-reset" class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
       </section>
@@ -181,7 +192,7 @@
           </div>
           <div class="form-group row mt-2">
             <div class="col-3">
-              <label for="perm-last-win">Last 5*</label>
+              <label for="perm-last-win">Last 5⭐</label>
             </div>
             <div class="col-4">
               <input type="number" name="perm-last-win" id="perm-last-win" value="0" readonly>
@@ -192,33 +203,37 @@
               <label for="perm-total">Total</label>
             </div>
             <div class="col-4">
-              <input type="number" name="perm-total" id="perm-total" value="0" style="width: 60px;margin-right:3px;"
+              <input type="number" name="perm-total" id="perm-total" value="0" style="width:60px;margin-right:3px;"
                 readonly>
               <i class="far fa-edit"></i>
             </div>
           </div>
         </form>
-        <h4 class="mt-4">Current Avl. Wishes = <span id="permWishes"> 0</span></h4>
-        <h4 class="mt-1">Total With Attempts = <span id="permWithAttempts"> 0</span></h4>
+        <h4 class="mt-4">Current Avl. Wishes: <span id="permWishes"> 0</span></h4>
+        <h4 class="mt-1">Total with Attempts: <span id="permWithAttempts"> 0</span></h4>
         <img class="banner-img mt-4" src="img/Wish_Wanderlust_Invocation_2020-11-11.png" alt="">
         <button id="perm-reset" class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
       </section>
       <div class="my-modal char-modal">
         <button class="close-btn"> <img src="img/closing-button.png" alt="Close"> </button>
-        <h3>Warning</h3>
-        <p>Are you sure you want to reset the entries</p>
+        <h3>Please Note!</h3>
+        <p>Are you sure you want to reset the entries?<br>Resetting will also apply the "<span
+            class="reset-warn">Attempts</span>" number
+          to the "Last 5⭐" number.</p>
         <button class="confirm">Yes!</button>
       </div>
       <div class="my-modal weapon-modal">
         <button class="close-btn"> <img src="img/closing-button.png" alt="Close"> </button>
-        <h3>Warning</h3>
-        <p>Are you sure you want to reset the entries</p>
+        <h3>Please Note!</h3>
+        <p>Are you sure you want to reset the entries?<br>Resetting will also apply the "<span
+            class="reset-warn">Attempts</span>" number to the "Last 5⭐" number.</p>
         <button class="confirm">Yes!</button>
       </div>
       <div class="my-modal perm-modal">
         <button class="close-btn"> <img src="img/closing-button.png" alt="Close"> </button>
-        <h3>Warning</h3>
-        <p>Are you sure you want to reset the entries</p>
+        <h3>Please Note!</h3>
+        <p>Are you sure you want to reset the entries?<br>Resetting will also apply the "<span
+            class="reset-warn">Attempts</span>" number to the "Last 5⭐" number.</p>
         <button class="confirm">Yes!</button>
       </div>
     </div>

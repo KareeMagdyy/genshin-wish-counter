@@ -1,6 +1,9 @@
 //Global Selectors
 // const inputs = document.querySelectorAll("input");
 const editBtn = document.querySelectorAll(".fa-edit");
+const detailPrimoSpan = document.querySelector(".primo span");
+const detailCrystalSpan = document.querySelector(".crystal span");
+const detailMasterSpan = document.querySelector(".masterless span");
 
 //Own Materials Selectors
 const ownPerm = document.getElementById("own-perm-banner");
@@ -72,6 +75,7 @@ editBtn.forEach((btn) => {
 document.addEventListener("DOMContentLoaded", totalCharWishes);
 document.addEventListener("DOMContentLoaded", totalWeaponWishes);
 document.addEventListener("DOMContentLoaded", totalPermWishes);
+document.addEventListener("DOMContentLoaded", detailedCalc);
 
 //Own Materials Events
 ownPerm.addEventListener("change", addToLocalOwnPerm);
@@ -112,6 +116,19 @@ permResetCloseBtn.addEventListener("click", permResetClose);
 permResetConfirmBtn.addEventListener("click", permResetConfirm);
 
 // Functions
+
+function detailedCalc() {
+  detailPrimoSpan.innerText = ` : ${Math.floor(
+    parseInt(ownPrimo.value) / 160
+  )}  wishes.`;
+  detailCrystalSpan.innerText = ` : ${Math.floor(
+    parseInt(ownGenesis.value) / 160
+  )}  wishes.`;
+  detailMasterSpan.innerText = ` : ${Math.floor(
+    parseInt(ownGlitter.value) / 5
+  )}  wishes.`;
+}
+
 function primoGenWishCount() {
   let totalPrimoGen = Math.floor(
     (parseInt(ownPrimo.value) + parseInt(ownGenesis.value)) / 160
@@ -176,6 +193,7 @@ function addToLocalOwnChar() {
 
 function addToLocalOwnPrimo() {
   localStorage.setItem("ownPrimo", ownPrimo.value);
+  detailedCalc();
   primoGenWishCount();
   totalCharWishes();
   totalWeaponWishes();
@@ -185,6 +203,7 @@ function addToLocalOwnPrimo() {
 function addToLocalOwnGen() {
   localStorage.setItem("ownGenesis", ownGenesis.value);
   primoGenWishCount();
+  detailedCalc();
   totalCharWishes();
   totalWeaponWishes();
   totalPermWishes();
@@ -193,6 +212,7 @@ function addToLocalOwnGen() {
 function addToLocalOwnStar() {
   localStorage.setItem("ownStar", ownGlitter.value);
   primoGenWishCount();
+  detailedCalc();
   totalCharWishes();
   totalWeaponWishes();
   totalPermWishes();
@@ -210,8 +230,8 @@ if (localStorage.getItem("ownPrimo")) {
 if (localStorage.getItem("ownGenesis")) {
   ownGenesis.value = localStorage.getItem("ownGenesis");
 }
-if (localStorage.getItem("ownGlitter")) {
-  ownGlitter.value = localStorage.getItem("ownGlitter");
+if (localStorage.getItem("ownStar")) {
+  ownGlitter.value = localStorage.getItem("ownStar");
 }
 
 //Char Banner LocalStorage
