@@ -7,6 +7,7 @@ const ownPerm = document.getElementById("own-perm-banner");
 const ownChar = document.getElementById("own-char-banner");
 const ownPrimo = document.getElementById("own-primogem");
 const ownGenesis = document.getElementById("own-genesis-crystal");
+const ownGlitter = document.getElementById("masterless");
 const currentWishCount = document.querySelector(".current-wish-count");
 
 //Character Banner Selectors
@@ -19,6 +20,8 @@ const charResetConfirmBtn = document.querySelector(".char-modal .confirm");
 const charResetCloseBtn = document.querySelector(".char-modal .close-btn");
 const addCharAtt = document.querySelector("#character .fa-plus-square");
 const removeCharAtt = document.querySelector("#character .fa-minus-square");
+const charWishes = document.getElementById("charWishes");
+const charWithAttempts = document.getElementById("charWithAttempts");
 
 //Weapon Banner Selector
 const weaponAttempts = document.getElementById("weapon-attempts");
@@ -30,6 +33,8 @@ const weaponResetConfirmBtn = document.querySelector(".weapon-modal .confirm");
 const weaponResetCloseBtn = document.querySelector(".weapon-modal .close-btn");
 const addWeaponAtt = document.querySelector("#weapon .fa-plus-square");
 const removeWeaponAtt = document.querySelector("#weapon .fa-minus-square");
+const weaponWishes = document.getElementById("weaponWishes");
+const weaponWithAttempts = document.getElementById("weaponWithAttempts");
 
 //Perm Banner Selector
 const permAttempts = document.getElementById("perm-attempts");
@@ -41,6 +46,8 @@ const permResetConfirmBtn = document.querySelector(".perm-modal .confirm");
 const permResetCloseBtn = document.querySelector(".perm-modal .close-btn");
 const addPermAtt = document.querySelector("#perm .fa-plus-square");
 const removePermAtt = document.querySelector("#perm .fa-minus-square");
+const permWishes = document.getElementById("permWishes");
+const permWithAttempts = document.getElementById("permWithAttempts");
 
 // Global Events
 // inputs.forEach((input) => {
@@ -62,11 +69,16 @@ editBtn.forEach((btn) => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", totalCharWishes);
+document.addEventListener("DOMContentLoaded", totalWeaponWishes);
+document.addEventListener("DOMContentLoaded", totalPermWishes);
+
 //Own Materials Events
 ownPerm.addEventListener("change", addToLocalOwnPerm);
 ownChar.addEventListener("change", addToLocalOwnChar);
 ownPrimo.addEventListener("change", addToLocalOwnPrimo);
 ownGenesis.addEventListener("change", addToLocalOwnGen);
+ownGlitter.addEventListener("change", addToLocalOwnStar);
 window.onload = primoGenWishCount;
 
 //Char Events
@@ -101,26 +113,89 @@ permResetConfirmBtn.addEventListener("click", permResetConfirm);
 
 // Functions
 function primoGenWishCount() {
-  const total = Math.floor(
+  let totalPrimoGen = Math.floor(
     (parseInt(ownPrimo.value) + parseInt(ownGenesis.value)) / 160
   );
+  let totalStar = Math.floor(parseInt(ownGlitter.value) / 5);
+  let total = totalPrimoGen + totalStar;
   return (currentWishCount.innerText = total);
+}
+
+function totalCharWishes() {
+  let totalPrimoGen = Math.floor(
+    (parseInt(ownPrimo.value) + parseInt(ownGenesis.value)) / 160
+  );
+  let totalStar = Math.floor(parseInt(ownGlitter.value) / 5);
+  charWishes.innerText =
+    parseInt(totalPrimoGen) + parseInt(ownChar.value) + parseInt(totalStar);
+  charWithAttempts.innerText =
+    parseInt(totalPrimoGen) +
+    parseInt(ownChar.value) +
+    parseInt(charAttempts.value) +
+    parseInt(totalStar);
+}
+
+function totalWeaponWishes() {
+  let totalPrimoGen = Math.floor(
+    (parseInt(ownPrimo.value) + parseInt(ownGenesis.value)) / 160
+  );
+  let totalStar = Math.floor(parseInt(ownGlitter.value) / 5);
+  weaponWishes.innerText =
+    parseInt(totalPrimoGen) + parseInt(ownChar.value) + parseInt(totalStar);
+  weaponWithAttempts.innerText =
+    parseInt(totalPrimoGen) +
+    parseInt(ownChar.value) +
+    parseInt(weaponAttempts.value) +
+    parseInt(totalStar);
+}
+
+function totalPermWishes() {
+  let totalPrimoGen = Math.floor(
+    (parseInt(ownPrimo.value) + parseInt(ownGenesis.value)) / 160
+  );
+  let totalStar = Math.floor(parseInt(ownGlitter.value) / 5);
+  permWishes.innerText =
+    parseInt(totalPrimoGen) + parseInt(ownPerm.value) + parseInt(totalStar);
+  permWithAttempts.innerText =
+    parseInt(totalPrimoGen) +
+    parseInt(ownPerm.value) +
+    parseInt(permAttempts.value) +
+    parseInt(totalStar);
 }
 
 //local Storage
 function addToLocalOwnPerm() {
   localStorage.setItem("ownPerm", ownPerm.value);
+  totalPermWishes();
 }
 function addToLocalOwnChar() {
   localStorage.setItem("ownChar", ownChar.value);
+  totalCharWishes();
+  totalWeaponWishes();
 }
+
 function addToLocalOwnPrimo() {
   localStorage.setItem("ownPrimo", ownPrimo.value);
   primoGenWishCount();
+  totalCharWishes();
+  totalWeaponWishes();
+  totalPermWishes();
 }
+
 function addToLocalOwnGen() {
   localStorage.setItem("ownGenesis", ownGenesis.value);
   primoGenWishCount();
+  totalCharWishes();
+  totalWeaponWishes();
+  totalPermWishes();
+}
+
+function addToLocalOwnStar() {
+  localStorage.setItem("ownStar", ownGlitter.value);
+  primoGenWishCount();
+  totalCharWishes();
+  totalWeaponWishes();
+  totalPermWishes();
 }
 
 if (localStorage.getItem("ownPerm")) {
@@ -134,6 +209,9 @@ if (localStorage.getItem("ownPrimo")) {
 }
 if (localStorage.getItem("ownGenesis")) {
   ownGenesis.value = localStorage.getItem("ownGenesis");
+}
+if (localStorage.getItem("ownGlitter")) {
+  ownGlitter.value = localStorage.getItem("ownGlitter");
 }
 
 //Char Banner LocalStorage
@@ -158,6 +236,7 @@ function addToLocalCharTotal(operator) {
     charTotal.value--;
   }
   localStorage.setItem("charBannerTotal", charTotal.value);
+  totalCharWishes();
 }
 
 function addToLocalCharLast() {
@@ -178,6 +257,7 @@ function charResetConfirm() {
   localStorage.setItem("charBannerLastWin", charAttempts.value);
   localStorage.removeItem("charBannerAttempts");
   charAttempts.value = 0;
+  totalCharWishes();
 }
 
 if (localStorage.getItem("charBannerAttempts")) {
@@ -212,6 +292,7 @@ function addToLocalWeaponTotal(operator) {
     weaponTotal.value--;
   }
   localStorage.setItem("weaponBannerTotal", weaponTotal.value);
+  totalWeaponWishes();
 }
 
 function addToLocalWeaponLast() {
@@ -232,6 +313,7 @@ function weaponResetConfirm() {
   localStorage.setItem("weaponBannerLastWin", weaponAttempts.value);
   localStorage.removeItem("weaponBannerAttempts");
   weaponAttempts.value = 0;
+  totalWeaponWishes();
 }
 
 if (localStorage.getItem("weaponBannerAttempts")) {
@@ -266,6 +348,7 @@ function addToLocalPermTotal(operator) {
     permTotal.value--;
   }
   localStorage.setItem("permBannerTotal", permTotal.value);
+  totalPermWishes();
 }
 
 function addToLocalPermLast() {
@@ -286,6 +369,7 @@ function permResetConfirm() {
   localStorage.setItem("permBannerLastWin", permAttempts.value);
   localStorage.removeItem("permBannerAttempts");
   permAttempts.value = 0;
+  totalPermWishes();
 }
 
 if (localStorage.getItem("permBannerAttempts")) {

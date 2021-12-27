@@ -1,6 +1,11 @@
 * {
   cursor: url(../img/genshin_cursor.cur), auto !important;
 }
+
+body {
+  padding-block: 1rem;
+}
+
 label img {
   width: 30px;
   height: 30px;
@@ -14,7 +19,7 @@ input[type="number"] {
   border-radius: 6px;
 }
 
-.current-wish-count {
+h4 > span {
   color: #e74c3c;
   font-weight: bold;
 }
@@ -28,6 +33,7 @@ section {
   max-width: 500px;
   max-height: 250px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .my-modal {

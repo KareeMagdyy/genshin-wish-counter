@@ -16,7 +16,7 @@
 
 <body>
   <div class="container d-flex justify-content-center align-items-center flex-column" style="height: 100vh;">
-    <h1 class="my-3">Welcome!</h1>
+    <!-- <h1 class="my-3">Welcome!</h1> -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link active" data-bs-toggle="tab" href="#owned">Owned Materials</a>
@@ -65,9 +65,17 @@
                 <input type="number" name="own-event-banner" id="own-genesis-crystal" value="0">
               </div>
             </div>
+            <div class="form-group row">
+              <div class="col-auto">
+                <label for="masterless"> <img src="/img/masterless_starglitter.png" alt="Master-less"></label>
+              </div>
+              <div class="col-auto">
+                <input type="number" name="masterless" id="masterless" value="0">
+              </div>
+            </div>
           </fieldset>
         </form>
-        <h3 class="mt-4">Current wish from currency = <span class='current-wish-count'></span></h3>
+        <h4 class="mt-4">Current wish from currency = <span class='current-wish-count'></span></h4>
       </section>
       <section id="character" class="my-1 p-4 tab-pane fade">
         <form>
@@ -77,7 +85,6 @@
             </div>
             <div class="col-4">
               <input type="number" name="char-attempts" id="char-attempts" value="0" style="width:55px" readonly>
-
             </div>
           </div>
           <div class="form-group row mt-1">
@@ -107,6 +114,8 @@
             </div>
           </div>
         </form>
+        <h4 class="mt-4">Current Avl. Wishes = <span id="charWishes"> 0</span></h4>
+        <h4 class="mt-1">Total With Attempts = <span id="charWithAttempts"> 0</span></h4>
         <img class="banner-img mt-4" src="img/Wish_Secretum_Secretorum_2021-11-24.png" alt="">
         <button id='char-reset' class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
       </section>
@@ -147,6 +156,8 @@
             </div>
           </div>
         </form>
+        <h4 class="mt-4">Current Avl. Wishes = <span id="weaponWishes"> 0</span></h4>
+        <h4 class="mt-1">Total With Attempts = <span id="weaponWithAttempts"> 0</span></h4>
         <img class="banner-img mt-4" src="img/Wish_Epitome_Invocation_2021-11-24.png" alt="">
         <button id="weapon-reset" class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
       </section>
@@ -187,6 +198,8 @@
             </div>
           </div>
         </form>
+        <h4 class="mt-4">Current Avl. Wishes = <span id="permWishes"> 0</span></h4>
+        <h4 class="mt-1">Total With Attempts = <span id="permWithAttempts"> 0</span></h4>
         <img class="banner-img mt-4" src="img/Wish_Wanderlust_Invocation_2020-11-11.png" alt="">
         <button id="perm-reset" class="btn btn-danger d-block mt-3 mx-auto">Reset</button>
       </section>
