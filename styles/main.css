@@ -48,7 +48,7 @@ section {
 }
 
 .details p span {
-  color: red;
+  color: #e74c3c;
 }
 
 .details img {
@@ -101,7 +101,7 @@ section {
 }
 
 .reset-warn {
-  color: rgb(255, 0, 0);
+  color: #e74c3c;
 }
 
 .char-modal {
