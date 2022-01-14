@@ -1,6 +1,6 @@
 # Genshin Impact Wish Calculator
 
-This is a Calculator you can use to calculate total wishes you have from materials also counting the betty system
+This is a Calculator you can use to calculate total wishes you have from materials also counting the pity system
 
 ## Website
 
@@ -9,9 +9,9 @@ https://banner-calculator.netlify.app/
 ## Features
 
 - Calculating Wishes from Current Materials you have
-- Counting Betty for Event Banner
-- Counting Betty for Weapon Banner
-- Counting Betty for Perm Banner
+- Counting Pity for Event Banner
+- Counting Pity for Weapon Banner
+- Counting Pity for Perm Banner
 - Responsive Design
 
 ## Screenshots
@@ -26,7 +26,7 @@ https://banner-calculator.netlify.app/
 - x160 Genisys Crystal = x1 Wish.
 - x5 Masterless Star Glitter = x1 Wish.
 
-### Betty Calculation
+### Pity Calculation
 
 - In this wish, guaranteed to win 4-star or above item at least once per 10 attempts.
 
