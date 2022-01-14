@@ -49,9 +49,9 @@ On obtaining a 4-star character that you already own (whether obtained in a wish
 
 | Color | Hex                                                              |
 | ----- | ---------------------------------------------------------------- |
-| Black | ![#222222](https://via.placeholder.com/10/0a192f?text=+) #222222 |
-| White | ![#ffffff](https://via.placeholder.com/10/f8f8f8?text=+) #ffffff |
-| Red   | ![#d02113](https://via.placeholder.com/10/00b48a?text=+) #d02113 |
+| Black | ![#222222](https://via.placeholder.com/10/222222?text=+) #222222 |
+| White | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+| Red   | ![#d02113](https://via.placeholder.com/10/d02113?text=+) #d02113 |
 
 ## Feedback
 
